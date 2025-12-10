@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "install": "^0.13.0"
+  },
+  "name": "ecommerce-cypress-automation",
+  "scripts": {
+    "test": "cypress run",          
+    "cy:run": "cypress run",        
+    "cy:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.4",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-xpath": "^2.0.1"
+  }
+}
+
+
+// {
+//   "name": "ecommerce-cypress-automation",
+//   "version": "1.0.0",
+//   "scripts": {
+//     "test": "cypress run",          
+//     "cy:run": "cypress run",        
+//     "cy:open": "cypress open"
+//   },
+//   "devDependencies": {
+//     "cypress": "^13.0.0",
+//     "mochawesome": "^7.1.3"
+//   }
+// }
