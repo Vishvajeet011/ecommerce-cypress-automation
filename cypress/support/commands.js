@@ -67,3 +67,15 @@ Cypress.Commands.add("containsIgnoreCase", (selector, text) => {
     cy.get('#password').type(password)
     cy.get('#login-button').click()
   })
+
+
+
+//Custom command for login to save session-
+import Login from "../POM/Login"
+
+Cypress.Commands.add("loginWithSession", (data) => {
+    cy.session("loginSession", () => {
+        const ln = new Login();
+        ln.loginUser(data);     // Uses your entire POM login flow
+    });
+});
