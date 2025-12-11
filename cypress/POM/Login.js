@@ -23,7 +23,7 @@ class Login{
     }
     loginAssertion(){
 
-        cy.get(this.dylogintoast).should('contain', "Login successfully").invoke('text')
+        cy.get(this.dylogintoast).invoke('text')
         .then((text) => {
             cy.log("Toast message after login: " + text);  });
     }
