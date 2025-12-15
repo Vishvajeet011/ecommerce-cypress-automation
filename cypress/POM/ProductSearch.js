@@ -1,40 +1,34 @@
-class ProductSearch{
-    dyProductSearch = "#search_keywords";
-    dyTshirt = "a[href='/product/levis-mens-tshirt']"
-    
-    searchProduct(data)
-    {
-        //cy.get(this.dyProductSearch).click()
-        //cy.get(this.dyProductSearch).type(data.ProductName)
-         cy.get(this.dyProductSearch)
-          .should('be.visible')               // ensure search box is present
+class ProductSearch {
+
+    constructor() {
+        this.dyProductSearch = "#search_keywords";
+        this.dyTshirt = "a[href='/product/levis-mens-tshirt']";
+        this.dyProductTitleOnPDP = ".product-title";
+    }
+
+    searchProduct(data) {
+        cy.get(this.dyProductSearch)
+          .should('be.visible')
           .clear()
-          .type(data.ProductName);            // type only, no submit button
+          .type(data.ProductName);
 
-
-          cy.get(this.dyTshirt)
-          .invoke('text')                 // get the link text
+        cy.get(this.dyTshirt)
+          .invoke('text')
           .then((expectedProductName) => {
 
-         cy.get(this.dyTshirt).click();
+             cy.get(this.dyTshirt).click();
 
-         cy.get(this.dyProductTitleOnPDP)
+             cy.get(this.dyProductTitleOnPDP)
                 .should('be.visible')
                 .invoke('text')
                 .then((actualProductName) => {
 
-                    // Trim spaces before compare
                     const expected = expectedProductName.trim().toLowerCase();
                     const actual = actualProductName.trim().toLowerCase();
 
-                    expect(actual).to.contain(expected);      // Assertion
+                    expect(actual).to.contain(expected);
                 });
           });
     }
-
-        productSearch(data){
-        this.searchProduct(data);
-    }
-
 }
 export default ProductSearch;

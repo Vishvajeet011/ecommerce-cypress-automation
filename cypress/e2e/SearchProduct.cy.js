@@ -18,7 +18,7 @@ describe("Search the product", ()=>{
     it("Test the search product functionality", ()=>{
         cy.fixture('ProductName').then((data=>{
         const ln = new ProductSearch();
-        ln.productSearch(data)
+        ln.searchProduct(data)
         }))
     })
 })
